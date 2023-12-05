@@ -12,6 +12,6 @@ class ThingForm(ModelForm):
         fields = ['name', 'description', 'quantity']
 
     description = forms.CharField(
-        widget=forms.Textarea()
+        widget=forms.Textarea(attrs={"maxlength": 120})
     )
     quantity = forms.NumberInput()
