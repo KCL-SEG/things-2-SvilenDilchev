@@ -1,4 +1,5 @@
 """Forms of the project."""
+from django.core.validators import MaxLengthValidator
 from django.forms import ModelForm
 from things.models import Thing
 from django import forms
@@ -10,5 +11,7 @@ class ThingForm(ModelForm):
         model = Thing
         fields = ['name', 'description', 'quantity']
 
-    description = forms.Textarea()
+    description = forms.CharField(
+        widget=forms.Textarea()
+    )
     quantity = forms.NumberInput()
